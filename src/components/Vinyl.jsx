@@ -1,40 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import "./Vinyl.css";
 
 const Vinyl = () => {
-    const [isPlaying,setIsPlaying] = useState(true);
-    const togglePlay = () =>{
-        setIsPlaying(!isPlaying);    
-    };
-  return ( 
-   <div style={styles.recordContainer}>
-        <div style={styles.record}>
-          <div style={styles.grooves}></div>
-          <div style={styles.reflection}></div>
-          <div style={styles.recordLabel}>
-            <div>ÁLBUM CLÁSSICO</div>
-            <div>33 RPM</div>
-          </div>
-          <div style={styles.recordCenter}></div>
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const togglePlay = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  return (
+    <div className="vinylWrapper">
+      <div className={`vinyl ${isPlaying ? "spinning" : ""}`}>
+        <div className="vinylGrooves"></div>
+        <div className="vinylLabel">
+          <span>ALBUM CLÁSSICO</span>
+          <span>33 RPM</span>
         </div>
+        <div className="vinylCenter"></div>
       </div>
-      
-      <div style={styles.controls}>
-        <button 
-          style={styles.button} 
-          onClick={togglePlay}
-        >
-          {isPlaying ? '⏸️ Pausar' : '▶️ Reproduzir'}
+
+      <div className="controls">
+        <button className="btn" onClick={togglePlay}>
+          {isPlaying ? "⏸️ Pausar" : "▶️ Reproduzir"}
         </button>
-      </div>
-      
-      <div style={styles.info}>
-        <p>Este é um componente React autônomo que simula um disco de vinil giratório.</p>
-        <p>Clique no botão para alternar entre os estados de reprodução e pausa.</p>
       </div>
     </div>
   );
 };
-  )
-}
 
-export default Vinyl
+export default Vinyl;

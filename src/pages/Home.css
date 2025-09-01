@@ -8,3 +8,67 @@ body{
     justify-content: center;
     align-items: center;
 }
+.homeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+/* Arco com 4 discos */
+.arcContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* Cada disco no arco */
+.arcItem {
+  cursor: pointer;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  text-align: center;
+}
+
+.arcItem p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Posição em arco: cada item recebe um deslocamento */
+.arcItem:nth-child(1) {
+  transform: translateY(60px) scale(0.8);
+}
+.arcItem:nth-child(2) {
+  transform: translateY(30px) scale(0.9);
+}
+.arcItem:nth-child(3) {
+  transform: translateY(30px) scale(0.9);
+}
+.arcItem:nth-child(4) {
+  transform: translateY(60px) scale(0.8);
+}
+
+/* Disco selecionado */
+.arcItem.active {
+  transform: translateY(-20px) scale(1.1);
+  z-index: 10;
+  opacity: 1;
+}
+
+/* Centro */
+.centerContainer {
+  margin-top: 20px;
+}
+
+.centerContainer h2 {
+  margin-bottom: 10px;
+}
