@@ -1,0 +1,10 @@
+#root{
+    margin: 0 auto;
+    height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    justify-content: center;
+    align-items: center;
+}
