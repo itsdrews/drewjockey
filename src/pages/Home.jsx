@@ -5,7 +5,6 @@ import Vinyl from "../components/Vinyl";
 const Home = () => {
   const [selected, setSelected] = useState(0);
 
-  // Apenas 4 discos
   const tracks = [
     { id: 0, title: "Clássico 1" },
     { id: 1, title: "Clássico 2" },
@@ -13,29 +12,44 @@ const Home = () => {
     { id: 3, title: "Clássico 4" },
   ];
 
+  const radius = 300; // Raio do arco em px
+  const total = tracks.length;
+  const startAngle = -45; // Ângulo inicial
+  const endAngle = 45;     // Ângulo final
+  const angleStep = (endAngle - startAngle) / (total-2); // Espaçamento entre os discos
+
   return (
-    <div className="homeWrapper">
-      <h1 className="title">DrewJockey Alpha</h1>
+    <>
+
 
       <div className="arcContainer">
-        {tracks.map((track, index) => (
-          <div
-            key={track.id}
-            className={`arcItem ${selected === index ? "active" : ""}`}
-            onClick={() => setSelected(index)}
-          >
-            <Vinyl />
-            <p>{track.title}</p>
-          </div>
-        ))}
+        <div className="arc">
+          {tracks.map((track, index) => {
+            const angle = startAngle + index * angleStep;
+
+            return (
+              <div
+                key={track.id}
+                className={`arcItem ${selected === index ? "active" : ""}`}
+                onClick={() => setSelected(index)}
+                style={{
+                  transform: `
+                    rotate(${angle}deg)
+                    translate(${radius}px)
+                    rotate(${-angle}deg)
+                  `,
+                }}
+              >
+                <Vinyl />
+                <p>{track.title}</p>
+              </div>
+            );
+          })}
+    
+        </div>
       </div>
 
-      <div className="centerContainer">
-        <h2>Selecionado:</h2>
-        <Vinyl />
-        <p>{tracks[selected].title}</p>
-      </div>
-    </div>
+    </>
   );
 };
 

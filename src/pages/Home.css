@@ -1,74 +1,45 @@
 #root{
-    margin: 0 auto;
-    height: 100vh;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 100vh;
+  width: 100vw  ;
 }
-body{
-    justify-content: center;
-    align-items: center;
-}
-.homeWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  margin-bottom: 30px;
-}
-
-/* Arco com 4 discos */
 .arcContainer {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  width: 100%;
-  max-width: 800px;
-  margin-bottom: 40px;
+  top: 0;
   position: relative;
+  width: 400px;
+  height: 300px;
+  margin: 0 auto;
 }
 
-/* Cada disco no arco */
+.arc {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100px); /* Move o arco para baixo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .arcItem {
-  cursor: pointer;
-  transition: transform 0.4s ease, opacity 0.3s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center left;
+  transition: transform 0.5s ease, scale 0.3s ease;
   text-align: center;
+  cursor: pointer;
 }
 
-.arcItem p {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #333;
-}
-
-/* Posição em arco: cada item recebe um deslocamento */
-.arcItem:nth-child(1) {
-  transform: translateY(60px) scale(0.8);
-}
-.arcItem:nth-child(2) {
-  transform: translateY(30px) scale(0.9);
-}
-.arcItem:nth-child(3) {
-  transform: translateY(30px) scale(0.9);
-}
-.arcItem:nth-child(4) {
-  transform: translateY(60px) scale(0.8);
-}
-
-/* Disco selecionado */
 .arcItem.active {
-  transform: translateY(-20px) scale(1.1);
+  scale: 1.1;
   z-index: 10;
-  opacity: 1;
 }
 
-/* Centro */
 .centerContainer {
-  margin-top: 20px;
-}
-
-.centerContainer h2 {
-  margin-bottom: 10px;
+  text-align: center;
+  margin-top: 2rem;
 }
